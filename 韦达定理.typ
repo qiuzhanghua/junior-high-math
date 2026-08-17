@@ -26,8 +26,45 @@
 }
 
 
-// 封面页不显示页码
 #set page(numbering: none)
+
+#show heading.where(level: 1): it => {
+  set text(24pt, weight: "bold")
+  align(center)[#it]
+}
+
+#show heading.where(level: 2): it => {
+  set text(20pt, weight: "bold")
+  align(center)[#it]
+}
+
+#set math.equation(numbering: "(1)")
+#set text(font: "Latin Modern Math")
+
+#let definition(body) = block(
+  fill: rgb("#e8f4f8"),
+  stroke: rgb("#2c3e50") + .5pt,
+  inset: (x: 12pt, y: 8pt),
+  radius: 4pt,
+)[
+  #strong[定义] #body
+]
+
+#let important-block = block.with(
+  fill: none,
+  stroke: gray + .3pt,
+  inset: 10pt,
+  radius: 4pt,
+)
+
+#let example(body) = block(
+  fill: rgb("#f8f9fa"),
+  stroke: rgb("#6c757d") + .3pt,
+  inset: (x: 12pt, y: 8pt),
+  radius: 4pt,
+)[
+  #text(fill: rgb("#0d6efd"), weight: "bold")[示例] #body
+]
 
 
 = 韦达定理(Vieta's Formulas)
@@ -36,7 +73,7 @@
 
 === 1.1 一元二次方程形式(基础版)
 
-对于一元二次方程 $a x^2 + b x + c = 0$(其中 $a != 0$)，设它的两个根为 $x_1$ 和 $x_2$，则：
+对于一元二次方程 $ a x^2 + b x + c = 0 $(其中 $a != 0$)，设它的两个根为 $x_1$ 和 $x_2$，则：
 
 $ x_1 + x_2 = - b / a $   
 $ x_1 x_2 = c / a $       
@@ -54,7 +91,7 @@ $x^2 + x + 1 = 0$的两根之和为 $-1$，两根之积为 $1$。
 
 \
 === 1.2 证明
-根据代数基本定理，二次方程 $a x^2 + b x + c = 0$ 的两个根为 $x_1$ 和 $x_2$，则：
+根据代数基本定理，二次方程 $ a x^2 + b x + c = 0 $ 的两个根为 $x_1$ 和 $x_2$，则：
 $ a x^2 + b x + c = a (x - x_1)(x - x_2) $
 展开右边：
 $ a (x^2 - (x_1 + x_2) x + x_1 x_2) = a x^2 - a (x_1 + x_2) x + a x_1 x_2 $
@@ -108,9 +145,7 @@ $ x_1^2 + x_2^2 = 3^2 - 2 dot 1 = 9 - 2 = 7 $
 
 === 2.1 一般形式(高次方程推广)
 
-对于一元 $n$ 次方程：$a_n x^n + a_(n-1) x^(n-1) + dots + a_1 x + a_0 = 0 quad (a_n != 0)$
-
-设它的 $n$ 个根为 $x_1, x_2, dots, x_n$(包含重根和复数根)，则韦达定理给出了所有初等对称多项式与系数的关系：
+对于一元 $n$ 次方程：$a_n x^n + a_(n-1) x^(n-1) + dots + a_1 x + a_0 = 0 quad (a_n != 0)$, 设它的 $n$ 个根为 $x_1, x_2, dots, x_n$(包含重根和复数根)，则韦达定理给出了所有初等对称多项式与系数的关系：
 
 + 所有根之和：
   $ x_1 + x_2 + dots + x_n = - a_(n-1) / a_n $
