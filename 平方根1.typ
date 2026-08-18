@@ -1,0 +1,149 @@
+// 保留您的页面设置
+#set page(
+  paper: "a4",
+)
+#set par(
+  first-line-indent: (amount: 2em, all: true),
+  spacing: 1em,
+  leading: 1em,
+)
+#set text(
+  font: ("Noto Serif CJK SC", "DejaVu Sans"),
+  size: 16pt,
+)
+
+#show heading.where(level: 1): it => {
+  set text(24pt, weight: "bold")
+  align(center)[#it]
+}
+
+#show heading.where(level: 2): it => {
+  set text(20pt, weight: "bold")
+  align(center)[#it]
+}
+
+#set page(numbering: none)
+
+#set math.equation(numbering: "(1)")
+#set text(font: "Latin Modern Math")
+
+#let definition(body) = block(
+  fill: rgb("#e8f4f8"),
+  stroke: rgb("#2c3e50") + .5pt,
+  inset: (x: 12pt, y: 8pt),
+  radius: 4pt,
+)[
+  #strong[定义] #body
+]
+
+#let important-block = block.with(
+  fill: none,
+  stroke: gray + .3pt,
+  inset: 10pt,
+  radius: 4pt,
+)
+
+#let example(body) = block(
+  fill: rgb("#f8f9fa"),
+  stroke: rgb("#6c757d") + .3pt,
+  inset: (x: 12pt, y: 8pt),
+  radius: 4pt,
+)[
+  #text(fill: rgb("#0d6efd"), weight: "bold")[示例] #body
+]
+
+== Square Root and Arithmetic Square Root Exercises
+\
+
+#important-block[
+  *注意事项：*
+  - $sqrt(a)$ 表示 $a$ 的算术平方根，结果非负。
+  - 正数 $a$ 的平方根为 $plus.minus sqrt(a)$。
+  - 负数在实数范围内没有平方根。
+  - $0$ 的平方根和算术平方根均为 $0$。
+]
+
+== 一、选择题（每题4分，共40分）
+
+1. $16$ 的算术平方根是（　）
+A. $plus.minus 4$　　B. $4$　　C. $-4$　　D. $8$
+
+2. 下列各数中，没有平方根的是（　）
+A. $0$　　B. $(-3)^2$　　C. $-3^2$　　D. $sqrt(9)$
+
+3. $sqrt(81)$ 的平方根是（　）
+A. $plus.minus 9$　　B. $9$　　C. $plus.minus 3$　　D. $3$
+
+4. 下列说法正确的是（　） \
+   A. 任何数都有两个平方根 \
+   B. 一个正数的平方根是算术平方根 \
+   C. 只有正数才有算术平方根 \
+   D. 负数没有平方根
+
+5. 若 $sqrt(a) = 5$，则 $a$ 的值为（　）
+A. $25$　　B. $plus.minus 25$　　C. $sqrt(5)$　　D. $-25$
+
+6. 下列等式正确的是（　） \
+   A. $sqrt(16) = plus.minus 4$ \
+   B. $sqrt((-5)^2) = -5$ \
+   C. $sqrt(0.01) = 0.1$ \
+   D. $sqrt(2^2) = plus.minus 2$
+
+7. $sqrt(64)$ 的算术平方根是（　）
+A. $8$　　B. $plus.minus 8$　　C. $2sqrt(2)$　　D. $sqrt(8)$
+
+8. 若 $sqrt(x-2)$ 有意义，则 $x$ 的取值范围是（　）
+A. $x > 2$　　B. $x >= 2$　　C. $x < 2$　　D. $x <= 2$
+
+9. 一个自然数的算术平方根是 $a$，则比这个自然数大 $3$ 的数的算术平方根是（　）
+A. $sqrt(a+3)$　　B. $sqrt(a^2+3)$　　C. $a+3$　　D. $sqrt(a)+3$
+
+10. 若 $sqrt(2x+1) = 3$，则 $x$ 的值为（　）
+A. $4$　　B. $5$　　C. $8$　　D. $2$
+\
+\
+
+== 二、填空题（每题4分，共24分）
+
+11. $0.36$ 的算术平方根是 \_\_\_\_\_\_\_\_。
+
+12. $sqrt(25) =$ \_\_\_\_\_\_\_\_；$(-sqrt(25))^2 =$ \_\_\_\_\_\_\_\_。
+
+13. 若 $sqrt(m) = 12$，则 $m =$ \_\_\_\_\_\_\_\_。
+
+14. 若 $x^2 = 49$，则 $x =$ \_\_\_\_\_\_\_\_；若 $sqrt(y) = 7$，则 $y =$ \_\_\_\_\_\_\_\_。
+
+15. 比较大小：$sqrt(15)$ \_\_\_\_\_\_\_\_ $4$（填“$>$”“$<$”或“$=$”）。
+
+16. 若 $sqrt(a-3) + sqrt(b+1) = 0$，则 $a+b =$ \_\_\_\_\_\_\_\_。
+\
+
+== 三、解答题（共36分）
+
+17. 求下列各数的平方根和算术平方根：（8分）
+(1) $121$　　　(2) $0.0004$　　　(3) $frac(9, 16)$　　　(4) $(-7)^2$
+\
+\
+\
+
+18. 求下列各式的值：（8分）
+(1) $sqrt(144)$　　(2) $-sqrt(0.81)$　　(3) $plus.minus sqrt(frac(25, 49))$　　(4) $sqrt( (-13)^2 )$
+\
+\
+\
+
+19. 已知一个正数的两个平方根分别是 $2a-1$ 和 $3a+6$，求 $a$ 的值和这个正数。（6分）
+\
+\
+\
+
+20. 若 $sqrt(2a+b-3) + |a-2| = 0$，求 $a$ 和 $b$ 的值。（6分）
+\
+\
+\
+
+21. 小华说：“$sqrt(16)$ 的平方根是 $plus.minus 4$。”小丽说：“$sqrt(16)$ 的平方根是 $plus.minus 2$。”谁的说法正确？请说明理由。（8分）
+\
+\
+\
+
