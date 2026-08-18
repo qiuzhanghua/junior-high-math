@@ -4,8 +4,8 @@
 
 #set page(
   paper: "a4",
-    header: align(right + horizon, {
-    context document.title  // 直接引用标题内容
+  header: align(right + horizon, {
+    context document.title // 直接引用标题内容
   }),
 )
 
@@ -37,7 +37,7 @@
 
 // #set page(numbering: "1")
 #set page(
-  footer: align(right, context numbering("第 1 页", here().page()))
+  footer: align(right, context numbering("第 1 页", here().page())),
 )
 #counter(page).update(1)  // 重置为 1
 #set math.equation(numbering: "(1)")
@@ -51,7 +51,7 @@
   [
     #text(weight: "bold", size: 1.1em, fill: rgb("#2e4a7a"))[定理] \
     #body
-  ]
+  ],
 )
 
 // 自定义证明环境
@@ -62,7 +62,7 @@
     #text(weight: "bold", style: "italic")[证明] \
     #body \
     #h(1fr) #text(weight: "bold")[□]
-  ]
+  ],
 )
 
 = 求根公式(Quadratic formula)
@@ -72,7 +72,7 @@
   $ a x^2 + b x + c = 0 quad (a != 0) $
 
   其两个根为
-  $ x = frac(-b plus.minus sqrt(b^2 - 4 a c), 2a) $,
+  $ x = frac(-b plus.minus sqrt(b^2 - 4 a c), 2a) $
 
   其中 $Delta = b^2 - 4 a c$ 称为判别式(Discriminant)。
 
@@ -109,7 +109,7 @@
 
 #block[
   解方程：$2 x^2 - 5 x + 2 = 0$，
-这里 $a = 2$，$b = -5$，$c = 2$。
+  这里 $a = 2$，$b = -5$，$c = 2$。
 
   判别式：
   $ Delta = b^2 - 4 a c = (-5)^2 - 4 dot 2 dot 2 = 25 - 16 = 9 > 0 $
