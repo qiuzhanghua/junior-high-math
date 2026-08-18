@@ -1,6 +1,14 @@
+#set document(title: [
+  Quadratic Equation
+])
+
 #set page(
   paper: "a4",
+    header: align(right + horizon, {
+    context document.title  // 直接引用标题内容
+  }),
 )
+
 #set par(
   // first-line-indent: (amount: 2em, all: true), // 首行缩进2个字符宽度
   spacing: 1em, // 段落间距
@@ -28,9 +36,11 @@
 #set page(numbering: none)
 
 // #set page(numbering: "1")
-#set page(numbering: "1")
+#set page(
+  footer: align(right, context numbering("第 1 页", here().page()))
+)
 #counter(page).update(1)  // 重置为 1
-
+#set math.equation(numbering: "(1)")
 // 自定义定理环境
 #let theorem(body) = block(
   fill: rgb("#f0f4ff"),

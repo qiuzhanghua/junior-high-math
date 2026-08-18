@@ -25,7 +25,7 @@
 #set math.equation(numbering: "(1)")
 #set text(font: "Latin Modern Math")
 
-#set page(numbering: "<1>")
+#set page(numbering: "第 1 页")
 #counter(page).update(1)
 
 = 韦达定理（不求根）

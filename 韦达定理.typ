@@ -1,16 +1,22 @@
+#set document(title: [
+  Vieta Theorem
+])
+
 #set page(
   paper: "a4",
+    header: align(right + horizon, {
+    context document.title  // 直接引用标题内容
+  }),
 )
+
 #set par(
   first-line-indent: (amount: 2em, all: true), // 首行缩进2个字符宽度
   spacing: 1em, // 段落间距
   leading: 1em, // 行间距
 )
-// #set text(
-//   font: ("Noto Sans CJK SC", ),
-// )
+
 #set text(
-  font: ("Noto Serif CJK SC", "DejaVu Sans"),
+  font: ("Noto Serif CJK SC", "Latin Modern Math", "DejaVu Sans"),
   size: 16pt,
 )
 // #set heading(numbering: "1.")
@@ -39,7 +45,6 @@
 }
 
 #set math.equation(numbering: "(1)")
-#set text(font: "Latin Modern Math")
 
 #let definition(body) = block(
   fill: rgb("#e8f4f8"),
@@ -66,8 +71,15 @@
   #text(fill: rgb("#0d6efd"), weight: "bold")[示例] #body
 ]
 
+#set text(font: "Latin Modern Math")
 
-= 韦达定理(Vieta's Formulas)
+#set page(
+  footer: align(right, context numbering("第 1 页", here().page()))
+)
+#counter(page).update(1)  // 重置为 1
+
+
+= 韦达定理
 
 == 1. 定理描述
 
@@ -141,7 +153,6 @@ $ x_1^2 + x_2^2 = 3^2 - 2 dot 1 = 9 - 2 = 7 $
 答：$(1) 7 quad (2) 3$。
 \
 
-#pagebreak()
 
 === 2.1 一般形式(高次方程推广)
 
