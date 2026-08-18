@@ -1,7 +1,14 @@
-// 保留您的页面设置
+#set document(title: [
+  Square Root
+])
+
 #set page(
   paper: "a4",
+    header: align(right + horizon, {
+    context document.title  // 直接引用标题内容
+  }),
 )
+
 #set par(
   first-line-indent: (amount: 2em, all: true),
   spacing: 1em,
@@ -51,6 +58,12 @@
 )[
   #text(fill: rgb("#0d6efd"), weight: "bold")[示例] #body
 ]
+
+#set page(
+  footer: align(right, context numbering("第 1 页", here().page()))
+)
+#counter(page).update(1)  // 重置为 1
+
 
 == 平方根与算术平方根
 \
