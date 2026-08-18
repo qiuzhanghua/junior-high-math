@@ -65,7 +65,7 @@
   ]
 )
 
-= 一元二次方程求根公式
+= 求根公式(Quadratic formula)
 #set align(center)
 #theorem[
   对于一元二次方程
@@ -74,7 +74,7 @@
   其两个根为
   $ x = frac(-b plus.minus sqrt(b^2 - 4 a c), 2a) $,
 
-  其中 $Delta = b^2 - 4 a c$ 称为判别式。
+  其中 $Delta = b^2 - 4 a c$ 称为判别式(Discriminant)。
 
   当 $Delta > 0$ 时，有两个不等实根；\
   当 $Delta = 0$ 时，有两个相等实根；\
