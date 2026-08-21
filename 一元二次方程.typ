@@ -1,171 +1,115 @@
-#set document(title: [
-  Quadratic Equation
-])
+#import "template.typ": *
 
-#set page(
-  paper: "a4",
-  header: align(right + horizon, {
-    context document.title // 直接引用标题内容
-  }),
-)
+#set document(title: [Quadratic Equation])
 
-#set par(
-  // first-line-indent: (amount: 2em, all: true), // 首行缩进2个字符宽度
-  spacing: 1em, // 段落间距
-  leading: 1em, // 行间距
-)
+#template(
+  heading2-align: left,
+  page-footer: "第 1 页",
+  equation-numbering: "(1)",
+  reset-page: true,
+)[
+  = 求根公式(Quadratic formula)
 
-#set text(
-  font: ("Noto Serif CJK SC", "DejaVu Sans"),
-  size: 16pt,
-)
-// #set heading(numbering: "1.")
+  #set align(center)
+  #theorem[
+    对于一元二次方程
+    $ a x^2 + b x + c = 0 quad (a != 0) $
 
-#show heading.where(level: 1): it => {
-  set text(24pt, weight: "bold")
-  align(center)[#it]
-}
+    其两个根为
+    $ x = frac(-b plus.minus sqrt(b^2 - 4 a c), 2a) $
 
-#show heading.where(level: 2): it => {
-  set text(20pt, weight: "bold")
-  align(left)[#it]
-}
+    其中 $Delta = b^2 - 4 a c$ 称为判别式(Discriminant)。
 
+    当 $Delta > 0$ 时，有两个不等实根；\
+    当 $Delta = 0$ 时，有两个相等实根；\
+    当 $Delta < 0$ 时，有一对共轭复根。
+  ]
 
-// 封面页不显示页码
-#set page(numbering: none)
+  #set align(left)
+  #proof[
+    由原方程
+    $ a x^2 + b x + c = 0 $
 
-// #set page(numbering: "1")
-#set page(
-  footer: align(right, context numbering("第 1 页", here().page())),
-)
-#counter(page).update(1)  // 重置为 1
-#set math.equation(numbering: "(1)")
-// 自定义定理环境
-#let theorem(body) = block(
-  fill: rgb("#f0f4ff"),
-  stroke: rgb("#2e4a7a") + 1.5pt,
-  radius: 4pt,
-  inset: 10pt,
-  spacing: 10pt,
-  [
-    #text(weight: "bold", size: 1.1em, fill: rgb("#2e4a7a"))[定理] \
-    #body
-  ],
-)
+    因 $a != 0$，两边同除以 $a$，得
+    $ x^2 + frac(b, a) x + frac(c, a) = 0 $
 
-// 自定义证明环境
-#let proof(body) = block(
-  inset: 10pt,
-  spacing: 10pt,
-  [
-    #text(weight: "bold", style: "italic")[证明] \
-    #body \
-    #h(1fr) #text(weight: "bold")[□]
-  ],
-)
+    配方：
+    $ x^2 + frac(b, a) x + (frac(b, 2a))^2 = (frac(b, 2a))^2 - frac(c, a) $
 
-= 求根公式(Quadratic formula)
-#set align(center)
-#theorem[
-  对于一元二次方程
-  $ a x^2 + b x + c = 0 quad (a != 0) $
+    即
+    $ (x + frac(b, 2a))^2 = frac(b^2 - 4 a c, 4a^2) $.
 
-  其两个根为
-  $ x = frac(-b plus.minus sqrt(b^2 - 4 a c), 2a) $
+    两边开平方，得
+    $ x + frac(b, 2a) = plus.minus frac(sqrt(b^2 - 4 a c), 2a) $
 
-  其中 $Delta = b^2 - 4 a c$ 称为判别式(Discriminant)。
+    因此
+    $ x = frac(-b plus.minus sqrt(b^2 - 4 a c), 2a) $
 
-  当 $Delta > 0$ 时，有两个不等实根；\
-  当 $Delta = 0$ 时，有两个相等实根；\
-  当 $Delta < 0$ 时，有一对共轭复根。
-]
+    证毕。
+  ]
 
-#set align(left)
-#proof[
-  由原方程
-  $ a x^2 + b x + c = 0 $
+  == 例 1：两个不等实根
 
-  因 $a != 0$，两边同除以 $a$，得
-  $ x^2 + frac(b, a) x + frac(c, a) = 0 $
+  #block[
+    解方程：$2 x^2 - 5 x + 2 = 0$，
+    这里 $a = 2$，$b = -5$，$c = 2$。
 
-  配方：
-  $ x^2 + frac(b, a) x + (frac(b, 2a))^2 = (frac(b, 2a))^2 - frac(c, a) $
+    判别式：
+    $ Delta = b^2 - 4 a c = (-5)^2 - 4 dot 2 dot 2 = 25 - 16 = 9 > 0 $
 
-  即
-  $ (x + frac(b, 2a))^2 = frac(b^2 - 4 a c, 4a^2) $.
+    因此方程有两个不等实根。
 
-  两边开平方，得
-  $ x + frac(b, 2a) = plus.minus frac(sqrt(b^2 - 4 a c), 2a) $
+    代入求根公式：
+    $ x = frac(-(-5) plus.minus sqrt(9), 2 dot 2) = frac(5 plus.minus 3, 4) $
 
-  因此
-  $ x = frac(-b plus.minus sqrt(b^2 - 4 a c), 2a) $
+    所以：
+    $ x_1 = frac(5 + 3, 4) = 2, quad x_2 = frac(5 - 3, 4) = frac(1, 2) $
+  ]
 
-  证毕。
-]
+  #block(fill: rgb("#f0f8f0"), inset: 8pt, radius: 4pt)[
+    *验证：* 当 $x = 2$ 时，$2(2)^2 - 5(2) + 2 = 8 - 10 + 2 = 0$ ✓ \
+    当 $x = frac(1, 2)$ 时，$2(frac(1, 2))^2 - 5(frac(1, 2)) + 2 = frac(1, 2) - frac(5, 2) + 2 = 0$ ✓
+  ]
 
+  == 例 2：两个相等实根（重根）
 
-== 例 1：两个不等实根
+  #block[
+    解方程：$x^2 - 6 x + 9 = 0$，这里 $a = 1$，$b = -6$，$c = 9$。
 
-#block[
-  解方程：$2 x^2 - 5 x + 2 = 0$，
-  这里 $a = 2$，$b = -5$，$c = 2$。
+    判别式：
+    $ Delta = b^2 - 4 a c = (-6)^2 - 4 dot 1 dot 9 = 36 - 36 = 0 $
 
-  判别式：
-  $ Delta = b^2 - 4 a c = (-5)^2 - 4 dot 2 dot 2 = 25 - 16 = 9 > 0 $
+    因此方程有两个相等实根（重根）。
 
-  因此方程有两个不等实根。
+    代入求根公式：
+    $ x = frac(-(-6) plus.minus sqrt(0), 2 dot 1) = frac(6, 2) = 3 $
 
-  代入求根公式：
-  $ x = frac(-(-5) plus.minus sqrt(9), 2 dot 2) = frac(5 plus.minus 3, 4) $
+    所以：
+    $ x_1 = x_2 = 3 $
+  ]
 
-  所以：
-  $ x_1 = frac(5 + 3, 4) = 2, quad x_2 = frac(5 - 3, 4) = frac(1, 2) $
-]
+  #block(fill: rgb("#f0f8f0"), inset: 8pt, radius: 4pt)[
+    *验证：* $x^2 - 6 x + 9 = (x - 3)^2 = 0$，因此 $x = 3$ 是二重根 ✓
+  ]
 
-#block(fill: rgb("#f0f8f0"), inset: 8pt, radius: 4pt)[
-  *验证：* 当 $x = 2$ 时，$2(2)^2 - 5(2) + 2 = 8 - 10 + 2 = 0$ ✓ \
-  当 $x = frac(1, 2)$ 时，$2(frac(1, 2))^2 - 5(frac(1, 2)) + 2 = frac(1, 2) - frac(5, 2) + 2 = 0$ ✓
-]
+  == 例 3：一对共轭复根
 
-== 例 2：两个相等实根（重根）
+  #block[
+    解方程：$x^2 + x + 1 = 0$，这里 $a = 1$，$b = 1$，$c = 1$。
 
-#block[
-  解方程：$x^2 - 6 x + 9 = 0$，这里 $a = 1$，$b = -6$，$c = 9$。
+    判别式：
+    $ Delta = b^2 - 4 a c = 1^2 - 4 dot 1 dot 1 = 1 - 4 = -3 < 0 $
 
-  判别式：
-  $ Delta = b^2 - 4 a c = (-6)^2 - 4 dot 1 dot 9 = 36 - 36 = 0 $
+    因此方程有一对共轭复根。
 
-  因此方程有两个相等实根（重根）。
+    代入求根公式：
+    $ x = frac(-1 plus.minus sqrt(-3), 2 dot 1) = frac(-1 plus.minus i sqrt(3), 2) $
 
-  代入求根公式：
-  $ x = frac(-(-6) plus.minus sqrt(0), 2 dot 1) = frac(6, 2) = 3 $
+    所以：
+    $ x_1 = frac(-1 + i sqrt(3), 2), quad x_2 = frac(-1 - i sqrt(3), 2) $
+  ]
 
-  所以：
-  $ x_1 = x_2 = 3 $
-]
-
-#block(fill: rgb("#f0f8f0"), inset: 8pt, radius: 4pt)[
-  *验证：* $x^2 - 6 x + 9 = (x - 3)^2 = 0$，因此 $x = 3$ 是二重根 ✓
-]
-
-== 例 3：一对共轭复根
-
-#block[
-  解方程：$x^2 + x + 1 = 0$，这里 $a = 1$，$b = 1$，$c = 1$。
-
-  判别式：
-  $ Delta = b^2 - 4 a c = 1^2 - 4 dot 1 dot 1 = 1 - 4 = -3 < 0 $
-
-  因此方程有一对共轭复根。
-
-  代入求根公式：
-  $ x = frac(-1 plus.minus sqrt(-3), 2 dot 1) = frac(-1 plus.minus i sqrt(3), 2) $
-
-  所以：
-  $ x_1 = frac(-1 + i sqrt(3), 2), quad x_2 = frac(-1 - i sqrt(3), 2) $
-]
-
-#block(fill: rgb("#f0f8f0"), inset: 8pt, radius: 4pt)[
-  *验证：* 由韦达定理，$x_1 + x_2 = -1$，$x_1 x_2 = 1$，满足方程 ✓
+  #block(fill: rgb("#f0f8f0"), inset: 8pt, radius: 4pt)[
+    *验证：* 由韦达定理，$x_1 + x_2 = -1$，$x_1 x_2 = 1$，满足方程 ✓
+  ]
 ]

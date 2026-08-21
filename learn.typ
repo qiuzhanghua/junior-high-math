@@ -1,5 +1,5 @@
 #set text(
-  font: ("Noto Serif CJK SC", "Latin Modern Math", "DejaVu Sans"),
+  font: ("Noto Serif CJK SC", "DejaVu Sans"),
   size: 16pt,
 )
 

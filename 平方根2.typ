@@ -1,143 +1,95 @@
-// 保留您的页面设置
-#set page(
-  paper: "a4",
-)
+#import "template.typ": *
 
-#set par(
-  first-line-indent: (amount: 2em, all: true),
-  spacing: 1em,
-  leading: 1em,
-)
-
-#set text(
-  font: ("Noto Serif CJK SC", "DejaVu Sans"),
-  size: 16pt,
-)
-
-#show heading.where(level: 1): it => {
-  set text(24pt, weight: "bold")
-  align(center)[#it]
-}
-
-#show heading.where(level: 2): it => {
-  set text(20pt, weight: "bold")
-  align(center)[#it]
-}
-
-#set page(numbering: none)
-
-#set math.equation(numbering: "(1)")
-#set text(font: "Latin Modern Math")
-
-#let definition(body) = block(
-  fill: rgb("#e8f4f8"),
-  stroke: rgb("#2c3e50") + .5pt,
-  inset: (x: 12pt, y: 8pt),
-  radius: 4pt,
+#template(
+  heading2-align: center,
+  first-line-indent: 2em,
+  equation-numbering: "(1)",
 )[
-  #strong[定义] #body
+  == 平方根与算术平方根练习（二）
+
+  == 一、选择题（每题4分，共40分）
+
+  1. $25$ 的算术平方根是（　）
+  A. $plus.minus 5$　　B. $5$　　C. $-5$　　D. $10$
+
+  2. 下列各数中，没有平方根的是（　）
+  A. $(-4)^2$　　B. $-4^2$　　C. $sqrt(16)$　　D. $0$
+
+  3. $sqrt(100)$ 的平方根是（　）
+  A. $plus.minus 10$　　B. $10$　　C. $plus.minus sqrt(10)$　　D. $plus.minus 5$
+
+  4. 下列说法正确的是（　）\
+     A. 负数也有算术平方根 \
+     B. 一个正数的平方根一定有两个 \
+     C. 算术平方根一定是正数 \
+     D. $0$ 的平方根是 $0$
+
+  5. 若 $sqrt(b) = 8$，则 $b$ 的值为（　）
+  A. $64$　　B. $plus.minus 64$　　C. $sqrt(8)$　　D. $-64$
+
+  6. 下列等式正确的是（　） \
+     A. $sqrt(9) = plus.minus 3$ \
+     B. $sqrt((-6)^2) = -6$ \
+     C. $sqrt(0.04) = 0.2$ \
+     D. $sqrt(3^2) = plus.minus 3$
+
+  7. $sqrt(144)$ 的算术平方根是（　）
+  A. $12$　　B. $plus.minus 12$　　C. $2sqrt(3)$　　D. $sqrt(12)$
+
+  8. 若 $sqrt(x+5)$ 有意义，则 $x$ 的取值范围是（　）
+  A. $x > -5$　　B. $x >= -5$　　C. $x < -5$　　D. $x <= -5$
+
+  9. 一个自然数的算术平方根是 $b$，则比这个自然数大 $2$ 的数的算术平方根是（　）
+  A. $sqrt(b+2)$　　B. $sqrt(b^2+2)$　　C. $b+2$　　D. $sqrt(b)+2$
+
+  10. 若 $sqrt(3x-2) = 4$，则 $x$ 的值为（　）
+  A. $6$　　B. $2$　　C. $10$　　D. $14$
+
+  \
+
+  == 二、填空题（每题4分，共24分）
+
+  11. $0.49$ 的算术平方根是 \_\_\_\_\_\_\_\_。
+
+  12. $sqrt(36) =$ \_\_\_\_\_\_\_\_；$(-sqrt(36))^2 =$ \_\_\_\_\_\_\_\_。
+
+  13. 若 $sqrt(n) = 15$，则 $n =$ \_\_\_\_\_\_\_\_。
+
+  14. 若 $x^2 = 81$，则 $x =$ \_\_\_\_\_\_\_\_；若 $sqrt(y) = 9$，则 $y =$ \_\_\_\_\_\_\_\_。
+
+  15. 比较大小：$sqrt(10)$ \_\_\_\_\_\_\_\_ $3$（填“$>$”“$<$”或“$=$”）。
+
+  16. 若 $sqrt(a-5) + sqrt(b+2) = 0$，则 $a+b =$ \_\_\_\_\_\_\_\_。
+
+  \
+
+  == 三、解答题（共36分）
+
+  17. 求下列各数的平方根和算术平方根：（8分）
+  (1) $169$　　　(2) $0.0009$　　　(3) $frac(4, 25)$　　　(4) $(-8)^2$
+
+  \
+  \
+  \
+
+  18. 求下列各式的值：（8分）
+  (1) $sqrt(225)$　　(2) $-sqrt(0.64)$　　(3) $plus.minus sqrt(frac(36, 81))$　　(4) $sqrt( (-20)^2 )$
+
+  \
+  \
+  \
+
+  19. 已知一个正数的两个平方根分别是 $3a-2$ 和 $5a+6$，求 $a$ 的值和这个正数。（6分）
+
+  \
+  \
+  \
+
+  20. 若 $sqrt(3a-b+1) + |a-3| = 0$，求 $a$ 和 $b$ 的值。（6分）
+
+  \
+  \
+  \
+
+  21. 小明说：“$sqrt(49)$ 的平方根是 $plus.minus 7$。”小红说：“$sqrt(49)$ 的平方根是 $plus.minus sqrt(7)$。”谁的说法正确？请说明理由。（8分）
 ]
-
-#let important-block = block.with(
-  fill: none,
-  stroke: gray + .3pt,
-  inset: 10pt,
-  radius: 4pt,
-)
-
-#let example(body) = block(
-  fill: rgb("#f8f9fa"),
-  stroke: rgb("#6c757d") + .3pt,
-  inset: (x: 12pt, y: 8pt),
-  radius: 4pt,
-)[
-  #text(fill: rgb("#0d6efd"), weight: "bold")[示例] #body
-]
-
-== 平方根与算术平方根练习（二）
-
-== 一、选择题（每题4分，共40分）
-
-1. $25$ 的算术平方根是（　）
-A. $plus.minus 5$　　B. $5$　　C. $-5$　　D. $10$
-
-2. 下列各数中，没有平方根的是（　）
-A. $(-4)^2$　　B. $-4^2$　　C. $sqrt(16)$　　D. $0$
-
-3. $sqrt(100)$ 的平方根是（　）
-A. $plus.minus 10$　　B. $10$　　C. $plus.minus sqrt(10)$　　D. $plus.minus 5$
-
-4. 下列说法正确的是（　）\
-   A. 负数也有算术平方根 \
-   B. 一个正数的平方根一定有两个 \
-   C. 算术平方根一定是正数 \
-   D. $0$ 的平方根是 $0$
-
-5. 若 $sqrt(b) = 8$，则 $b$ 的值为（　）
-A. $64$　　B. $plus.minus 64$　　C. $sqrt(8)$　　D. $-64$
-
-6. 下列等式正确的是（　） \
-   A. $sqrt(9) = plus.minus 3$ \
-   B. $sqrt((-6)^2) = -6$ \
-   C. $sqrt(0.04) = 0.2$ \
-   D. $sqrt(3^2) = plus.minus 3$
-
-7. $sqrt(144)$ 的算术平方根是（　）
-A. $12$　　B. $plus.minus 12$　　C. $2sqrt(3)$　　D. $sqrt(12)$
-
-8. 若 $sqrt(x+5)$ 有意义，则 $x$ 的取值范围是（　）
-A. $x > -5$　　B. $x >= -5$　　C. $x < -5$　　D. $x <= -5$
-
-9. 一个自然数的算术平方根是 $b$，则比这个自然数大 $2$ 的数的算术平方根是（　）
-A. $sqrt(b+2)$　　B. $sqrt(b^2+2)$　　C. $b+2$　　D. $sqrt(b)+2$
-
-10. 若 $sqrt(3x-2) = 4$，则 $x$ 的值为（　）
-A. $6$　　B. $2$　　C. $10$　　D. $14$
-
-\
-
-== 二、填空题（每题4分，共24分）
-
-11. $0.49$ 的算术平方根是 \_\_\_\_\_\_\_\_。
-
-12. $sqrt(36) =$ \_\_\_\_\_\_\_\_；$(-sqrt(36))^2 =$ \_\_\_\_\_\_\_\_。
-
-13. 若 $sqrt(n) = 15$，则 $n =$ \_\_\_\_\_\_\_\_。
-
-14. 若 $x^2 = 81$，则 $x =$ \_\_\_\_\_\_\_\_；若 $sqrt(y) = 9$，则 $y =$ \_\_\_\_\_\_\_\_。
-
-15. 比较大小：$sqrt(10)$ \_\_\_\_\_\_\_\_ $3$（填“$>$”“$<$”或“$=$”）。
-
-16. 若 $sqrt(a-5) + sqrt(b+2) = 0$，则 $a+b =$ \_\_\_\_\_\_\_\_。
-
-\
-
-== 三、解答题（共36分）
-
-17. 求下列各数的平方根和算术平方根：（8分）
-(1) $169$　　　(2) $0.0009$　　　(3) $frac(4, 25)$　　　(4) $(-8)^2$
-
-\
-\
-\
-
-18. 求下列各式的值：（8分）
-(1) $sqrt(225)$　　(2) $-sqrt(0.64)$　　(3) $plus.minus sqrt(frac(36, 81))$　　(4) $sqrt( (-20)^2 )$
-
-\
-\
-\
-
-19. 已知一个正数的两个平方根分别是 $3a-2$ 和 $5a+6$，求 $a$ 的值和这个正数。（6分）
-
-\
-\
-\
-
-20. 若 $sqrt(3a-b+1) + |a-3| = 0$，求 $a$ 和 $b$ 的值。（6分）
-
-\
-\
-\
-
-21. 小明说：“$sqrt(49)$ 的平方根是 $plus.minus 7$。”小红说：“$sqrt(49)$ 的平方根是 $plus.minus sqrt(7)$。”谁的说法正确？请说明理由。（8分）
