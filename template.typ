@@ -105,7 +105,9 @@
   set page(
     paper: "a4",
     header: header-content,
-    footer: footer-content,
+    // 注意：无自定义页脚时须用 auto（默认页脚），显式设 none 会连带禁用
+    // `page-numbering` 的标准页码（页码默认就渲染在页脚区域）。
+    footer: if page-footer == none { auto } else { footer-content },
     numbering: if page-footer != none { none } else { page-numbering },
   )
 
