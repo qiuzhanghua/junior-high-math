@@ -129,9 +129,10 @@
   // 注意：不要再执行 `#set text(font: "Latin Modern Math")` 之类的单字体覆盖，
   // 那会替换掉整个字体列表，导致中文失去 CJK 回退；且本机未安装该字体，
   // 会触发 "unknown font family" 警告。数学公式默认使用 New Computer Modern Math，
-  // 无需单独指定。
+  // 无需单独指定。 "DejaVu Sans"
+ // "Noto Sans SC", "Sarasa Gothic SC", "Source Han Serif"
   set text(
-    font: ("Sarasa Gothic SC", "DejaVu Sans"),
+    font: ("New Computer Modern Math", "Source Han Serif"),
     size: text-size,
   )
 
