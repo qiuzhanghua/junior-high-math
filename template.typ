@@ -131,7 +131,7 @@
   // 会触发 "unknown font family" 警告。数学公式默认使用 New Computer Modern Math，
   // 无需单独指定。
   set text(
-    font: ("Noto Serif CJK SC", "DejaVu Sans"),
+    font: ("Sarasa Gothic SC", "DejaVu Sans"),
     size: text-size,
   )
 
