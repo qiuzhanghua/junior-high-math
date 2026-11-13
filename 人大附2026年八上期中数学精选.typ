@@ -34,11 +34,6 @@
     其中所有正确的结论为 #blank(4)。
   ]
 
-  #remark[
-    原卷 ③ 处的印刷文字被手写答案涂改覆盖，无法辨读；原卷右侧手写批注给出的是
-    $A F - C G = C A$，这里即按此录入。② 处同理，按残存的“$... = D C$”与图形反推为 $D E = D C$。
-    两个结论的正确性下面都单独验证过，与图形无矛盾。
-  ]
 
   #align(center)[
     #cetz.canvas(length: 0.62cm, {
@@ -72,7 +67,7 @@
       // CE 延长到 H
       line(C, H, stroke: (paint: rgb("#1f4e79"), thickness: .7pt, dash: "dashed"))
       // ∠CBA 的直角标记（B 处朝向 A 与 C 之间，即左上方）
-      line((-0.32, 0), (-0.32, 0.32), (0, 0.32), stroke: .6pt)
+      line((-0.26, 0), (-0.26, 0.26), (0, 0.26), stroke: .55pt)
 
       content(A, $A$, anchor: "north")
       content((-0.06, -0.3), $B$, anchor: "north")
@@ -82,7 +77,7 @@
       content((9.85, 0), $F$, anchor: "west")
       content((0, -5.95), $G$, anchor: "east")
       content((3.7, -3.6), $H$, anchor: "west")
-      content((-0.62, 0.62), $P$, anchor: "east")
+      content((0.28, 0.98), $P$, anchor: "west")
     })
   ]
 
@@ -142,134 +137,98 @@
 
   === ③ $A F - C G = C A$
 
-  这条的关键是先在 $C E$ 上找出一段等于 $A C$ 的线段。由 ①、② 已得 $angle C D A = 45 degree$ 且
-  $D C = D E$，又 $D E perp C F$，所以 $triangle C D E$ 是等腰直角三角形，
+  关键是把 $A C$ 换成 $A E$，再用一个全等把 $C G$ 换成 $E F$。
 
-  $ angle D C E = 45 degree, quad C E = sqrt(2) C D. $
+  *第一步：$R t triangle E F D approx.eq R t triangle C G D$，从而 $E F = C G$。*
 
-  $D$ 在 $C F$ 上，故 $angle A C E = angle A C D - angle D C E$。代入 $angle A C D = 135 degree - alpha$：
+  因为 $D$ 在 $C F$ 上、$D E perp C F$，所以 $angle E D F = 90 degree$；同理 $D G perp C F$ 给出
+  $angle C D G = 90 degree$。
 
-  $ angle A C E = (135 degree - alpha) - 45 degree = 90 degree - alpha. $
+  $F$、$D$、$C$ 依次在一条直线上，$E$、$B$ 都在 $F$ 的同一侧，故 $angle E F D = angle C F B$。
+  在 $R t triangle C B F$ 中 $angle C B F = 90 degree$、$angle B C F = 45 degree + alpha$，所以
+
+  $ angle E F D = angle C F B = 45 degree - alpha. $
+
+  $G$ 在 $C B$ 的延长线上，$angle D C G = angle B C F = 45 degree + alpha$，在 $R t triangle C D G$ 中
+
+  $ angle C G D = 90 degree - (45 degree + alpha) = 45 degree - alpha = angle E F D. $
+
+  又由 ② 得 $E D = C D$。于是这两个直角三角形满足：一条直角边相等（$E D = C D$）、
+  一个锐角相等（$angle E F D = angle C G D$，另一直角角相等），由 $A A S$ 得
+
+  $ R t triangle E F D approx.eq R t triangle C G D, $
+
+  所以对应边
+
+  $ E F = C G $ <eq:ef>
+
+  这里顺带得到 $D F = D G$，④ 中要用。
+
+  *第二步：$A E = A C$。* 由 ②，$triangle C D E$ 中 $C D = D E$ 且 $angle C D E = 90 degree$，
+  故它是等腰直角三角形，$angle D C E = 45 degree$。$D$ 在 $C F$ 上，所以
+
+  $ angle A C E = angle A C D - angle D C E = (135 degree - alpha) - 45 degree, $
+
+  即 $angle A C E = 90 degree - alpha$。
 
   $E$ 在 $A B$ 的延长线上，$angle C A E = angle C A B = 2 alpha$，于是在 $triangle A C E$ 中
 
   $ angle A E C = 180 degree - 2 alpha - (90 degree - alpha) = 90 degree - alpha = angle A C E, $
 
-  所以
+  两个角相等，故
 
   $ A E = A C. $ <eq:ae>
 
-  这一步把 $A C$ 换成了 $A E$。因为 $A$、$E$、$F$ 依次在一条直线上（$E$ 在 $A B$ 的延长线上，
-  $F$ 在 $A B$ 的延长线上更远处），有 $A F = A E + E F$，于是
+  *第三步：收尾。* $A$、$B$、$E$、$F$ 依次在一条直线上，故 $A F = A E + E F$。代入 @eq:ef：
 
-  $ A F - C G = A E + E F - C G = A C + (E F - C G), $
-
-  下面只需证 $E F = C G$。
-
-  先看 $E F$。$angle A E C = 90 degree - alpha$ 且 $E$ 在 $A B$ 上，故
-  $angle C E F = 180 degree - (90 degree - alpha) = 90 degree + alpha$；又 $F$ 在 $A B$ 的延长线上，
-  $angle C B F = 90 degree$、$angle B C F = 45 degree + alpha$，得
-
-  $ angle C F E = angle C F B = 45 degree - alpha. $
-
-  于是 $triangle C E F$ 中 $angle E C F = 180 degree - (90 degree + alpha) - (45 degree - alpha) = 45 degree$，
-  由正弦定理
-
-  $ E F = (C E sin 45 degree) / (sin (45 degree - alpha)) = (sqrt(2) C D dot (sqrt(2))/2) / (sin (45 degree - alpha)) = (C D) / (sin (45 degree - alpha)). $
-
-  再看 $C G$。$G$ 在 $C B$ 的延长线上，故 $C$、$B$、$G$ 共线；
-  $angle D C G = angle B C F = 45 degree + alpha$，且 $angle C D G = 90 degree$，
-  在 $R t triangle C D G$ 中
-
-  $ C G = (C D) / (cos angle D C G) = (C D) / (cos (45 degree + alpha)). $
-
-  而 $cos (45 degree + alpha) = sin (90 degree - (45 degree + alpha)) = sin (45 degree - alpha)$，两个分母相同，所以
-
-  $ E F = C G. $
-
-  代回：
-
-  $ A F - C G = A C + (E F - C G) = A C. $
+  $ A F - C G = A E + E F - C G = A E = A C. $
 
   ③ 正确。
 
   === ④ $F G = 2 G H + C E$
 
-  这条要绕一点：先把 $F G$ 拆成 $G H + H F$，再用 $H F = C H = C E + E H$ 换成 $G H$ 与 $C E$。
+  先把 $F G$ 拆成 $G H + H F$，再证 $H F = C H = C E + E H$，最后证 $E H = G H$。
 
-  *第一步：$angle H C F = 45 degree$。* 由 ②，$triangle C D E$ 中 $C D = D E$ 且
-  $angle C D E = 90 degree$，故它是等腰直角三角形，
+  *第一步：$angle H C F = 45 degree$。* 由 ②，$triangle C D E$ 是等腰直角三角形，
+  $angle D C E = angle D E C = 45 degree$。$D$ 在 $C F$ 上，$C$、$E$、$H$ 共线，故
 
-  $ angle D C E = angle D E C = 45 degree. $
+  $ angle H C F = angle D C E = 45 degree. $
 
-  $D$ 在 $C F$ 上、$C$、$E$、$H$ 共线，所以 $angle H C F = angle D C E = 45 degree$。
+  *第二步：$angle D G F = 45 degree$。* 由 ③ 第一步的全等得 $D F = D G$；又 $D G perp C F$ 而
+  $D$、$F$ 都在 $C F$ 上，故 $angle G D F = 90 degree$。于是 $triangle D G F$ 是等腰直角三角形，
 
-  *第二步：$B$、$G$、$D$、$F$ 四点共圆。* 先看 $angle C B D$。点 $D$ 在 $angle C A B$ 的平分线上，
-  故 $D$ 到 $A B$、$A C$ 距离相等；$D$ 又在 $angle A C B$ 的外角平分线上，故 $D$ 到 $A C$、$B C$ 距离相等。
-  于是 $D$ 到 $A B$、$B C$ 距离相等，即 $B D$ 是 $angle A B C$ 的平分线或外角平分线。
-  由图 $D$ 在 $angle A B C$ 的外部，故 $B D$ 平分 $angle A B C$ 的外角：
+  $ angle D G F = angle D F G = 45 degree. $
 
-  $ angle C B D = 45 degree. $
+  （这一步就是全题的关键：$D$ 到 $F$、$G$ 等距，且 $angle G D F$ 是直角。）
 
-  在 $triangle B C D$ 中，$angle B C D = angle B C F = 45 degree + alpha$，于是
+  *第三步：$angle C F G = 45 degree$。* $G$ 在 $C B$ 的延长线上，$G C$ 与 $G B$ 是同一条射线，
+  由第一步前的计算 $angle C G D = 45 degree - alpha$。又 $G F$ 落在 $G C$ 与 $G D$ 之间，故
 
-  $ angle B D C = 180 degree - 45 degree - (45 degree + alpha) = 90 degree - alpha. $
+  $ angle C G F = angle C G D + angle D G F = (45 degree - alpha) + 45 degree, $
 
-  因为 $C$、$D$、$F$ 共线且 $D$ 在 $C$、$F$ 之间，$angle B D F = 180 degree - angle B D C = 90 degree + alpha$。
-  又 $F$ 在 $A B$ 的延长线上（$B$ 的外侧），而 $D$ 在 $B C$ 的外侧，故 $angle A B D = 90 degree + 45 degree = 135 degree$，
+  即 $angle C G F = 90 degree - alpha$。
 
-  $ angle F B D = 180 degree - 135 degree = 45 degree. $
-
-  在 $triangle B D F$ 中，$angle B F D = 180 degree - 45 degree - (90 degree + alpha) = 45 degree - alpha$。
-
-  再看 $triangle B D G$。由 $angle C D G = 90 degree$（$D G perp C F$）得
-
-  $ angle B D G = angle C D G - angle B D C = 90 degree - (90 degree - alpha) = alpha, $
-
-  又 $G$ 在 $C B$ 的反向延长线上，$angle G B C$ 是平角，故
-
-  $ angle G B D = 180 degree - angle C B D = 135 degree, $
-
-  于是
-
-  $ angle B G D = 180 degree - 135 degree - alpha = 45 degree - alpha. $
-
-  于是 $angle B G D = angle B F D$。这两个角都对线段 $B D$，说明
-  $B$、$G$、$D$、$F$ 四点共圆。
-
-  *第三步：$angle D G F = 45 degree$。* 在同一圆中，$angle D G F$ 与 $angle D B F$ 都对弧 $D F$，所以
-
-  $ angle D G F = angle D B F = 45 degree. $
-
-  *第四步：收尾。* $G$ 处 $G C$、$G B$ 是同一条射线，故
-
-  $ angle C G F = angle C G D + angle D G F. $
-
-  代入 $angle C G D = angle B G D = 45 degree - alpha$（$G C$ 与 $G B$ 同向，第二步已得）与
-  $angle D G F = 45 degree$，得
-
-  $ angle C G F = 90 degree - alpha. $
-
-  在 $triangle C F G$ 中，
+  在 $triangle C F G$ 中，$angle F C G = angle B C F = 45 degree + alpha$，所以
 
   $ angle C F G = 180 degree - (45 degree + alpha) - (90 degree - alpha) = 45 degree. $
 
-  于是 $triangle C H F$ 中 $angle H C F = angle H F C = 45 degree$，故
+  *第四步：$H F = C H$。* 在 $triangle C H F$ 中，$angle H C F = 45 degree$（第一步）且
+  $angle H F C = angle C F G = 45 degree$（第三步），故
 
   $ angle C H F = 90 degree, quad C H = H F. $
 
-  由 $E$ 在 $C H$ 上、$G$ 在 $F G$ 上，$triangle G H E$ 中 $angle G H E = 90 degree$；
-  又 $E$ 在 $D G$ 上，$angle E G H = angle D G F = 45 degree$，故 $triangle G H E$ 也是等腰直角三角形，
+  *第五步：$E H = G H$。* $E$ 在 $C H$ 上、$G$ 在 $F G$ 上，故 $angle G H E = 90 degree$；
+  又 $E$ 在 $D G$ 上，$angle E G H = angle D G F = 45 degree$，所以 $triangle G H E$ 也是等腰直角三角形，
 
-  $ G H = H E. $
+  $ E H = G H. $
 
-  把这些代回：
+  *收尾。* 把 $H F$ 换成 $C H = C E + E H$：
 
   $ F G = G H + H F = G H + C H = G H + (C E + E H), $
 
-  再用 $E H = G H$，得
+  再把 $E H$ 换成 $G H$，即得
 
-  $ F G = G H + C E + G H = 2 G H + C E. $
+  $ F G = C E + G H + G H = 2 G H + C E. $
 
   ④ 正确。
 
@@ -314,11 +273,11 @@
 
       content(A, $A$, anchor: "north")
       content((-0.28, -0.22), $B$, anchor: "north-east")
-      content((-0.12, 2.86), $D$, anchor: "east")
+      content((-0.3, 3.05), $D$, anchor: "east")
       content((1.95, 5.45), $C$, anchor: "south")
       content((0.9, -0.3), $F$, anchor: "north")
-      content((1.78, 2.62), $E$, anchor: "west")
-      content((1.05, 1.75), $M$, anchor: "east")
+      content((1.95, 2.95), $E$, anchor: "south-west")
+      content((0.95, 1.62), $M$, anchor: "east")
     })
   ]
 
@@ -334,87 +293,71 @@
 
   === （2）$angle D A B = angle D A C$
 
-  由 $angle A F D + angle A C D = 180 degree$ 可知四边形 $A F D C$ 中一组对角互补，
-  所以 $A$、$F$、$D$、$C$ 四点共圆。
+  把 $D$ 到 $A B$、$A C$ 的距离都作出来，再用两次全等。
 
-  又 $F$ 在边 $A B$ 上，射线 $A B$ 与射线 $A F$ 是同一条射线，故 $angle D A B = angle D A F$。
-  在同圆中，$angle D A F$ 与 $angle D C F$ 都对弧 $D F$，所以
+  因为 $angle B = 90 degree$、$F$ 在边 $A B$ 上，所以 $D B perp A B$，即 $D$ 到 $A B$ 的距离就是 $D B$。
+  过 $D$ 作 $D N perp A C$ 于 $N$，则 $D$ 到 $A C$ 的距离是 $D N$。
 
-  $ angle D A B = angle D A F = angle D C F. $
+  *第一步：$R t triangle D B F approx.eq R t triangle D N C$。*
 
-  同理，$angle D A C$ 与 $angle D F C$ 都对弧 $D C$，所以
+  $A$、$F$、$B$ 依次在一条直线上，故 $angle D F B = 180 degree - angle A F D$；
+  又已知 $angle A F D + angle A C D = 180 degree$，两式相减得
 
-  $ angle D A C = angle D F C. $
+  $ angle D F B = angle A C D = angle D C N. $
 
-  另一方面，$triangle D F C$ 中 $D F = C D$，故 $angle D C F = angle D F C$。于是
+  于是 $R t triangle D B F$ 与 $R t triangle D N C$ 中：$angle D B F = angle D N C = 90 degree$、
+  $angle D F B = angle D C N$、斜边 $D F = D C$，由 $A A S$ 得
 
-  $ angle D A B = angle D A C, $
+  $ R t triangle D B F approx.eq R t triangle D N C, $
+
+  所以
+
+  $ D B = D N, quad B F = N C. $ <eq:hleq>
+
+  *第二步：$R t triangle A D B approx.eq R t triangle A D N$。* 这两个直角三角形中，
+  $angle A B D = angle A N D = 90 degree$、斜边 $A D$ 公共、直角边 $D B = D N$，由 $H L$ 得
+
+  $ R t triangle A D B approx.eq R t triangle A D N, $
+
+  所以 $angle D A B = angle D A N = angle D A C$，且
+
+  $ A B = A N. $ <eq:an>
 
   即 $A D$ 平分 $angle B A C$。
 
+  顺带记住 @eq:an 与 @eq:hleq：因为 $A$、$N$、$C$ 依次在一条直线上，
+
+  $ A C = A N + N C = A B + B F, $ <eq:acab>
+
+  第（3）问要用。
+
   === （3）求 $M F$
 
-  由（2），$A D$ 平分 $angle B A C$；而 $F$ 在边 $A B$ 上，$M$ 在 $A D$ 上，
-  所以 $A M$ 平分 $angle F A C$。在 $triangle A F C$ 中，$M$ 在边 $F C$ 上，
-  由三角形内角平分线定理
+  设 $B F = a$，由 @eq:acab 与已知 $A C = 6 B F = 6 a$ 得
 
-  $ (M F) / (M C) = (A F) / (A C). $ <eq:mfr>
+  $ A B = A C - B F = 6 a - a = 5 a, $
 
-  下面把 $A F : A C$ 求出来。设 $B F = a$、$A B = c$，$angle D A B = theta$，
-  则 $angle D A C = theta$，$angle B A C = 2 theta$，$angle A C B = 90 degree - 2 theta$
-  （$angle B = 90 degree$）。取 $B$ 为原点、$A$ 在 $x$ 轴上，则
+  $ A F = A B - B F = 5 a - a = 4 a. $
 
-  $ A = (c, 0), quad B = (0, 0), quad F = (a, 0), quad D = (0, c tan theta), $
+  由（2），$A D$ 平分 $angle B A C$；而 $F$ 在边 $A B$ 上，故 $A F$ 与 $A B$ 是同一条射线，
+  $A M$（$M$ 在 $A D$ 上）平分 $angle F A C$。在 $triangle A F C$ 中，$M$ 在边 $F C$ 上，
+  用面积比求 $M F : M C$。
 
-  其中 $D$ 的纵坐标为 $c tan theta$ 是因为 $angle D A B$ 在直角三角形 $A B D$ 中
-  恰是 $B D$ 与 $A B$ 之比。又 $A C = 6 a$、$angle B A C = 2 theta$，且 $C$ 与 $D$ 在 $A B$ 同侧，故
+  设 $M$ 到 $A F$、$A C$ 的距离分别为 $d_1$、$d_2$。因为 $M$ 在 $angle F A C$ 的平分线上，所以
+  $d_1 = d_2$。由 $S_(triangle A F M) = 1/2 A F dot d_1$ 与 $S_(triangle A M C) = 1/2 A C dot d_2$ 相除得
 
-  $ C = (c - 6 a cos 2 theta, thin 6 a sin 2 theta). $
+  $ (S_(triangle A F M)) / (S_(triangle A M C)) = (A F) / (A C) = (4 a) / (6 a) = 2/3. $
 
-  由 $D F = C D$ 得 $D F^2 = C D^2$，即
+  而这两个三角形同高（顶点 $A$ 到直线 $F C$ 的距离），面积比等于底之比，所以
 
-  $ a^2 + c^2 tan^2 theta = (c - 6 a cos 2 theta)^2 + (6 a sin 2 theta - c tan theta)^2. $
+  $ (M F) / (M C) = 2/3, quad "即" M C = 3/2 M F. $ <eq:mc>
 
-  为把量纲消掉，记 $k = a \/ c = (B F) / (A B)$。两边同除 $c^2$，注意左边是
-  $k^2 + tan^2 theta$，与右边的 $tan^2 theta$ 恰好消去，于是
+  又由（1），$E$ 是 $C F$ 的中点，故 $C E = 1/2 C F = 1/2 (M F + M C)$。
+  由 $M$ 在 $F$、$C$ 之间、$E$ 是中点知 $M E = M C - C E$，代入 @eq:mc：
 
-  $ k^2 = (1 - 6 k cos 2 theta)^2 + (6 k sin 2 theta - tan theta)^2. $
+  $ M E = M C - 1/2 (M F + M C) = 1/2 M C - 1/2 M F, $
 
-  展开右侧（中间两个乘积项合并，且 $(cos 2 theta)^2 + (sin 2 theta)^2 = 1$），得
-
-  $ k^2 = 1 - 12 k cos 2 theta + 36 k^2 - 12 k sin 2 theta tan theta, $
-
-  即
-
-  $ k^2 = 1 - 12 k (cos 2 theta + sin 2 theta tan theta) + 36 k^2. $
-
-  而
-
-  $ cos 2 theta + sin 2 theta tan theta = cos 2 theta + 2 sin^2 theta = 1, $
-
-  于是
-
-  $ k^2 = 1 - 12 k + 36 k^2, quad "即" 35 k^2 - 12 k + 1 = 0. $
-
-  解得 $k = 1/5$ 或 $k = 1/7$。若 $k = 1/7$，则 $A F = A B - B F = 6 a = A C$，
-  由角平分线定理得 $M F = M C$，即 $M$ 是 $C F$ 的中点；但（1）已证 $E$ 也是 $C F$ 的中点，
-  于是 $M E = 0$，与 $M E = 1$ 矛盾。故
-
-  $ k = 1/5, quad A B = 5 a = 5 B F, quad A F = 4 a, quad A C = 6 a. $
-
-  代回 @eq:mfr：
-
-  $ (M F) / (M C) = (4 a) / (6 a) = 2/3, quad "即" M C = 3/2 M F. $
-
-  又由（1），$E$ 是 $C F$ 的中点，且 $M$ 在 $F$、$C$ 之间，所以
-
-  $ M E = M C - C E = 3/2 M F - 1/2 (M C + M F). $
-
-  代入 $M C = 3/2 M F$：
-
-  $ M E = 3/2 M F - 1/2 (5/2 M F) = 3/2 M F - 5/4 M F = 1/4 M F. $
-
-  已知 $M E = 1$，故
+  即 $M E = 1/2 dot 3/2 M F - 1/2 M F = 1/4 M F$。已知 $M E = 1$，所以
 
   $ M F = 4. $
 
@@ -453,14 +396,9 @@
           content((4.9, 0.28), $x$)
           content((-0.34, 5.62), $y$)
           content((-0.38, -0.42), $O$)
-          for k in (-3, 1, 3) {
-            line((k, -0.1), (k, 0.1), stroke: .5pt)
-            content((k, -0.55), text(size: 7pt, str(k)))
-          }
-          for k in (-3, 3, 4) {
-            line((-0.1, k), (0.1, k), stroke: .5pt)
-            content((-0.52, k), text(size: 7pt, str(k)))
-          }
+          // 各点坐标题面已给出，图上不标刻度数字，免得与 A、B、P 的标签相撞
+          line((-0.14, 0), (0.14, 0), stroke: .5pt)
+          line((0, -0.14), (0, 0.14), stroke: .5pt)
           // ∠APB = 60° 的临界点：(0, ±2√3)，与 A、B 构成等边三角形的顶点
           let h = 3.464
           line((0, h), (-2, 0), (0, -h), (2, 0), close: true, stroke: (
@@ -470,19 +408,19 @@
           ))
           circle((-2, 0), radius: .08, fill: black)
           circle((2, 0), radius: .08, fill: black)
-          content((-2.05, -0.75), $A$, anchor: "north")
-          content((2.05, -0.75), $B$, anchor: "north")
+          content((-2.35, -0.35), $A$, anchor: "east")
+          content((2.35, -0.35), $B$, anchor: "west")
           circle((-1, 3), radius: .08, fill: black)
           content((-1.42, 3.2), $P_1$, anchor: "east")
           circle((0, 2), radius: .08, fill: black)
           content((0.32, 2), $P_2$, anchor: "west")
           circle((0, -1), radius: .08, fill: black)
-          content((0.32, -1), $P_3$, anchor: "west")
+          content((0.35, -0.85), $P_3$, anchor: "west")
           circle((0, 4), radius: .08, fill: black)
           content((0.32, 4), $P_4$, anchor: "west")
         })
         #v(-0.4em)
-        [图 1]
+        图 1
       ],
       align(center)[
         #cetz.canvas(length: 0.46cm, {
@@ -492,11 +430,11 @@
           content((7.35, 0.28), $x$)
           content((-0.34, 7.75), $y$)
           content((-0.38, -0.42), $O$)
-          for k in (2, 4, 6) {
+          for k in (2, 4) {
             line((k, -0.1), (k, 0.1), stroke: .5pt)
             content((k, -0.55), text(size: 7pt, str(k)))
           }
-          for k in (-3, 3, 6) {
+          for k in (-3, 6) {
             line((-0.1, k), (0.1, k), stroke: .5pt)
             content((-0.58, k), text(size: 7pt, str(k)))
           }
@@ -514,10 +452,10 @@
           circle(B, radius: .08, fill: black)
           content((-0.32, 3), $A$, anchor: "east")
           content((5.2, -0.55), $B$, anchor: "north")
-          content((1.75, 1.05), $6$, anchor: "east")
+          content((2.25, 0.72), $6$, anchor: "west")
         })
         #v(-0.4em)
-        [图 2]
+        图 2
       ],
     )
   ]
@@ -528,10 +466,19 @@
   由 $A (-2, 0)$、$B (2, 0)$ 知垂直平分线就是 $y$ 轴，所以先排除
   $P_1 (-1, 3)$——它不在 $y$ 轴上，不是关联点。
 
-  对 $y$ 轴上的点 $P (0, t)$，$triangle A P B$ 是等腰三角形，底边 $A B = 4$、底边上的高为 $|t|$，
-  故 $tan (angle A P B)/2 = 2/(|t|)$。"近关联点"要求 $angle A P B > 60 degree$，即
+  对 $y$ 轴上的点 $P (0, t)$，$triangle A P B$ 是等腰三角形，$A B = 4$。
+  先找"强关联点"：若 $angle A P B = 60 degree$，由 $P A = P B$ 知 $triangle A P B$ 是等边三角形，于是
 
-  $ 2/(|t|) > tan 30 degree = (sqrt(3))/3 quad <==> quad |t| < 2 sqrt(3) approx 3.46. $
+  $ P A = P B = A B = 4. $
+
+  设 $K$ 是 $A B$ 的中点（即原点），则 $P K perp A B$、$A K = 2$，由勾股定理
+
+  $ P K = sqrt(4^2 - 2^2) = sqrt(12) = 2 sqrt(3) approx 3.46. $
+
+  即 $|t| = 2 sqrt(3)$ 时 $angle A P B = 60 degree$。$P$ 越靠近 $A B$（$|t|$ 越小），
+  $angle A P B$ 越大；$P$ 落在线段 $A B$ 上时 $angle A P B = 180 degree$。所以
+
+  $ "近关联点" quad <==> quad |t| < 2 sqrt(3). $
 
   逐个检验：
 
@@ -545,26 +492,42 @@
 
   === （2）纵坐标 $t$ 的取值范围
 
-  由 $A (0, 3)$ 与 $angle O A B = 60 degree$ 得 $O B = 3 sqrt(3)$，故 $B (3 sqrt(3), 0)$，
-  且 $A B = sqrt((3 sqrt(3))^2 + 3^2) = 6$。$P$ 是"远关联点"需 $P A = P B$ 且 $angle A P B < 60 degree$：
-  设 $A B$ 的中点为 $K$、$P$ 到直线 $A B$ 的距离为 $h$，则 $P$ 在过 $K$ 且垂直 $A B$ 的直线上，
-  且 $tan (angle A P B)/2 = 3/h$。要求 $(angle A P B)/2 < 30 degree$，即
+  由 $A (0, 3)$ 与 $angle O A B = 60 degree$，在 $R t triangle O A B$ 中 $angle A O B = 90 degree$，
+  故 $angle O B A = 30 degree$，于是 $O B = sqrt(3) dot O A = 3 sqrt(3)$，$B (3 sqrt(3), 0)$，且
 
-  $ 3/h < (sqrt(3))/3 quad <==> quad h > 3 sqrt(3). $
+  $ A B = 2 dot O A = 6. $
 
-  $A B$ 的中点 $K = (3 sqrt(3)/2, 3/2)$，沿 $A B$ 方向的单位向量是 $(sqrt(3)/2, -1/2)$，
-  故垂直 $A B$ 的单位向量可取 $(1/2, sqrt(3)/2)$，于是
-  $P = K + s (1/2, sqrt(3)/2)$，其中 $|s| = h > 3 sqrt(3)$。
+  $P$ 是"远关联点"需 $P A = P B$ 且 $angle A P B < 60 degree$。
+  先找临界位置，也就是 $angle A P B = 60 degree$ 的"强关联点"：此时 $P A = P B$ 且顶角为 $60 degree$，
+  故 $triangle A P B$ 是等边三角形，
 
-  比较纵坐标：$t = 3/2 + (sqrt(3))/2 s$，由 $|s| > 3 sqrt(3)$ 得
+  $ P A = P B = A B = 6. $
 
-  $ |t - 3/2| > (sqrt(3))/2 dot 3 sqrt(3) = 9/2, $
+  设 $P (x, y)$，由 $P A = 6$、$P B = 6$ 列式：
 
-  解得 $t > 6$ 或 $t < -3$。
+  $ x^2 + (y - 3)^2 = 36, quad (x - 3 sqrt(3))^2 + y^2 = 36. $
+
+  两式相减并化简，得
+
+  $ 6 sqrt(3) x - 6 y - 18 = 0 quad ==> quad y = sqrt(3) x - 3. $
+
+  代回 $x^2 + (y - 3)^2 = 36$：
+
+  $ x^2 + (sqrt(3) x - 6)^2 = 36 quad ==> quad 4 x^2 - 12 sqrt(3) x = 0, $
+
+  所以 $x = 0$ 或 $x = 3 sqrt(3)$，对应两个临界点
+
+  $ (0, -3) quad "与" quad (3 sqrt(3), 6). $
+
+  也就是说，两个临界点分别在 $A$ 的正下方 6 处、$B$ 的正上方 6 处，正是图 2 中虚线菱形的下、上顶点。
+
+  这两个点把垂直平分线分成三段。$P$ 离 $A B$ 越远（即 $P$ 在菱形外部），$angle A P B$ 越小，
+  所以"远关联点"的纵坐标满足
+
+  $ t < -3 quad "或" quad t > 6. $
 
   *答：* $t < -3$ 或 $t > 6$。
 
-  两个临界点 $(3 sqrt(3)/2, 6)$ 与 $(3 sqrt(3)/2, -3)$ 正是图 2 中虚线菱形的上、下顶点：
-  在这两点处 $angle A P B = 60 degree$（强关联点），到菱形外部就成了"远关联点"。
-  两问里 $2 sqrt(3)$ 与 $3 sqrt(3)$ 的不同只因线段 $A B$ 的长度不同（$4$ 与 $6$），方法一致。
+  两问里 $2 sqrt(3)$ 与 $3 sqrt(3)$ 的不同，只因线段 $A B$ 的长度不同（$4$ 与 $6$），方法完全一致。
+
 ]

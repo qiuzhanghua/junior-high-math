@@ -27,7 +27,7 @@ for my son, I have created this repository to help him with his middle school ma
 - `./build 平方根`（或 `./build --only 平方根 --output dist`）
 - `./build.ps1 -Only 平方根`
 
-PDF 与源文件同目录（`.gitignore` 已忽略 `*.pdf`）。全量 34 篇实测共 147 页。
+PDF 与源文件同目录（`.gitignore` 已忽略 `*.pdf`）。全量 34 篇实测共 146 页。
 
 ## 模板同步
 
