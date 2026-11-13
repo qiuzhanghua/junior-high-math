@@ -2,7 +2,7 @@
 
 for my son, I have created this repository to help him with his middle school mathematics studies. The repository contains various resources, exercises, and explanations to aid in understanding key mathematical concepts.
 
-共 **34** 篇文档（不含模板 `template.typ`），共用根目录下的 `template.typ` 排版。
+共 **35** 篇文档（不含模板 `template.typ`），共用根目录下的 `template.typ` 排版。
 本仓是统一模板的**大字版**：`.template.conf` 里 `TEXTSIZE=16pt`，正文字号比其余几仓大 4pt。
 
 ## 内容概览
@@ -10,7 +10,7 @@ for my son, I have created this repository to help him with his middle school ma
 | 类别 | 文件 | 说明 |
 |---|---|---|
 | 知识讲解 | `一元二次方程.typ`、`韦达定理.typ`、`平方根.typ`、`一次函数.typ`、`二次函数.typ`、`三角形全等.typ`、`旋转与中点.typ`、`人大附2026年八上期中数学精选.typ`、`初中数学公式.typ` | 求根公式/韦达定理/平方根/一次函数/二次函数/三角形全等讲解，一道等腰三角形旋转与中点题（旋转+中位线、倍长中线两法，带图），三道八上期中综合题精解（角平分线多结论、四边形全等求线段、新定义“关联点”，均带图）+ 26 条公式速查卡（代数/几何/三角函数/统计） |
-| 练习卷 | `一元二次方程1/2/3/4.typ`、`韦达定理1/2/3.typ`、`平方根1/2.typ`、`因式分解1/2/3/4.typ`、`一次函数1/2.typ`、`二次函数1/2.typ`、`三角形全等1.typ` | 共 18 份约 340 题，数字 1/2 为换数换版，`3`/`4` 为提高篇 |
+| 练习卷 | `人大附2026年八上期中数学精选·练习卷.typ`、`一元二次方程1/2/3/4.typ`、`韦达定理1/2/3.typ`、`平方根1/2.typ`、`因式分解1/2/3/4.typ`、`一次函数1/2.typ`、`二次函数1/2.typ`、`三角形全等1.typ` | 共 19 份约 340 题；首份是上面的期中精选三题的练习版（只印原题、每题独占一页、题下留横线作答，答案见精选篇），数字 1/2 为换数换版，`3`/`4` 为提高篇 |
 | 测试卷 | `整式乘法.typ`、`整式乘法2/3/4.typ`、`整式乘法随口背1.typ` | 北师大版七年级下册单元卷（C 卷带解析），外加 20 道整式乘法速练与公式对照表 |
 | 杂项 | `learn.typ` | 学习笔记：韦达定理 + 例题（$x^77 + 10x - 5 = 0$ 各根 77 次方和），并演示 `@preview/diverential`、`@preview/physica` 两个数学包的效果 |
 | 模板 | `template.typ` | 共享样式模板，自动生成，用法见文件头部注释 |
@@ -27,7 +27,7 @@ for my son, I have created this repository to help him with his middle school ma
 - `./build 平方根`（或 `./build --only 平方根 --output dist`）
 - `./build.ps1 -Only 平方根`
 
-PDF 与源文件同目录（`.gitignore` 已忽略 `*.pdf`）。全量 34 篇实测共 146 页。
+PDF 与源文件同目录（`.gitignore` 已忽略 `*.pdf`）。全量 35 篇实测共 149 页。
 
 ## 模板同步
 
